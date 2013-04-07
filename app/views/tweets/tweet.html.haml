@@ -1,0 +1,50 @@
+.container
+  %h3
+    Logged in as » #{link_to current_user.nickname, preferences_url} (#{link_to 'Logout', logout_url})
+  %p
+    Write a tweet in the box below and then press the 'contwinue...' button to post to Twitter.
+    If your Tweet is longer than 140 characters, we'll break it up into smaller tweets for
+    you automatically.
+  %p
+    %form{name: 'tweet-form', action: tweet_path, method: :post}
+      .control-group
+        %input{type: 'hidden', name: 'authenticity_token', value: form_authenticity_token.to_s}
+        %input{type: 'hidden', name: 'utf8', value: '&#x2713;'}
+        %label{for: 'tweet'}
+          What's happening?
+        %textarea{name: 'tweet', rows: 5, class: 'field span8'}
+          = @tweet
+        %br/
+        %label{class: 'checkbox'}
+          Check this box if you would like to preview the tweets before they are posted to Twitter
+          %input{type: 'checkbox', name: 'preview', value: false}
+        %input{type: 'submit', value: 'contwinue...', class: 'btn btn-primary'}
+  %p
+    - if @status
+      - if @status == :success || @status == :preview
+        - if @posted_tweets && @posted_tweets.size > 0
+          %p
+            - case @status
+            - when :preview
+              Here is a preview of the tweets we'll post to Twitter for you.
+            - else
+              Here are the tweets we just posted to Twitter for you.
+          %table.table.table-condensed
+            - @posted_tweets.each do |tweet, status|
+              - case status
+              - when :failure
+                %tr.error
+                  %td= tweet
+              - when :preview
+                %tr.warning
+                  %td= tweet
+              - else
+                %tr.success
+                  %td
+                    #{link_to '#', "https://twitter.com/#{current_user.nickname}/status/#{status}"} #{tweet}
+        - else
+          %p You didn't supply a tweet.
+      - else
+        %p
+          We encountered an error trying to break up your tweet. It was probably due to a word that
+          was more than 140 characters long. Sorry it didn't work out :(

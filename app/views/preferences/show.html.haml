@@ -1,0 +1,18 @@
+.container
+  %h3
+    Logged in as » #{current_user.nickname} (#{link_to 'Logout', logout_url})
+  %p
+    %form{name: 'pre-form', action: preferences_path, method: :post}
+      .control-group
+        %input{type: 'hidden', name: '_method', value: 'put'}
+        %input{type: 'hidden', name: 'utf8', value: '&#x2713;'}
+        %input{type: 'hidden', name: 'authenticity_token', value: form_authenticity_token.to_s}
+        %p
+          I would like to use the #{select_tag(:continuation_style, options_for_select([['text, e.g. (cont.)', :text], ['numeric, e.g. (1/5)', :numeric]], current_user.continuation_style), class: 'input-medium')} style for continued tweets.
+        %p
+        I would like to place the numeric continuation text, e.g. (1/5), at the #{select_tag(:continuation_placement, options_for_select([['beginning', :beginning], ['end', :end]], current_user.continuation_placement), class: 'input-medium')}, of the tweet.
+        %br/
+        %input{type: 'submit', value: 'Update', class: 'btn btn-primary'}
+          my preferences.
+  %p
+    Once you're done, go #{link_to 'write something', tweet_url}.
