@@ -15,8 +15,11 @@
         %textarea{name: 'tweet', rows: 5, class: 'field span8'}
           = @tweet
         %br/
+        .row.span2.offset6.count
+          %span 0/140 [Tweets: 0]
+        %br/
         %label{class: 'checkbox'}
-          Check this box if you would like to preview the tweets before they are posted to Twitter
+          Preview Tweet(s)
           %input{type: 'checkbox', name: 'preview', value: false}
         %input{type: 'submit', value: 'contwinue...', class: 'btn btn-primary'}
   %p
