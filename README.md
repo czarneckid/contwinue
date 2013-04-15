@@ -37,7 +37,6 @@ unicorn -c config/unicorn.rb
 * User-configurable continuation text
 * Better UI
   * Improved preferences page
-  * Character count on tweet page
 
 ## Contributing to contwinue
 
