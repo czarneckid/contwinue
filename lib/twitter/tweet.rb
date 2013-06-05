@@ -1,4 +1,3 @@
-require 'uri'
 require 'typhoeus'
 
 class Tweet
@@ -11,7 +10,7 @@ class Tweet
     def shorten_urls(tweet)
       return unless tweet
 
-      uris = URI.extract(tweet)
+      uris = Twitter::Extractor.extract_urls(tweet)
       shortened_url_mapping = {}
       uris.each do |uri|
         shortened_url = Typhoeus::Request.get('http://is.gd/create.php', params: {
@@ -25,7 +24,7 @@ class Tweet
       end
 
       shortened_url_mapping.each do |url, short_url|
-        tweet = tweet.sub(url, short_url)
+        tweet = tweet.gsub(url, short_url)
       end
 
       tweet
