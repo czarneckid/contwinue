@@ -23,6 +23,7 @@ gem 'bson_ext'
 
 # Utility
 gem 'twitter'
+gem 'twitter-text'
 gem 'typhoeus'
 
 group :assets do
