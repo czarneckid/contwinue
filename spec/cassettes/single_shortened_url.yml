@@ -17,7 +17,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 03 Mar 2013 18:08:35 GMT
+      - Wed, 05 Jun 2013 16:43:11 GMT
       Content-Type:
       - text/html; charset=UTF-8
       Transfer-Encoding:
@@ -28,12 +28,12 @@ http_interactions:
       - PHP/5.2.17
     body:
       encoding: UTF-8
-      string: http://is.gd/gbKNRq
+      string: http://is.gd/WzFWtC
     http_version: '1.1'
-  recorded_at: Sun, 03 Mar 2013 18:08:35 GMT
+  recorded_at: Wed, 05 Jun 2013 16:43:11 GMT
 - request:
     method: get
-    uri: http://is.gd/create.php?format=simple&url=http%3A%2F%2Fwww.google.com.
+    uri: http://is.gd/create.php?format=simple&url=http%3A%2F%2Fwww.google.com
     body:
       encoding: UTF-8
       string: ''
@@ -48,7 +48,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 03 Mar 2013 18:08:35 GMT
+      - Wed, 05 Jun 2013 16:43:12 GMT
       Content-Type:
       - text/html; charset=UTF-8
       Transfer-Encoding:
@@ -59,7 +59,7 @@ http_interactions:
       - PHP/5.2.17
     body:
       encoding: UTF-8
-      string: http://is.gd/gbKNRq
+      string: http://is.gd/WzFWtC
     http_version: '1.1'
-  recorded_at: Sun, 03 Mar 2013 18:08:35 GMT
+  recorded_at: Wed, 05 Jun 2013 16:43:12 GMT
 recorded_with: VCR 2.4.0
