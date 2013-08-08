@@ -37,6 +37,12 @@ unicorn -c config/unicorn.rb
 * User-configurable continuation text
 * Better UI
   * Improved preferences page
+* Ability to reply to a specific tweet. Update `tweetable`
+  concern to add `in_reply_to_status_id` in `update` call.
+* Utilize more methods in twitter-text gem like
+  `Twitter::Validation.tweet_length` and
+  `Twitter::Extractor.extract_urls_with_indices`.
+
 
 ## Contributing to contwinue
 
