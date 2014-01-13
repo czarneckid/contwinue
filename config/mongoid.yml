@@ -24,5 +24,4 @@ production:
         read: :primary
         max_retries: 5
         retry_interval: 1
-        skip_version_check: true
         write: { w: 1 }
