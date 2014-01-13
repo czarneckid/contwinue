@@ -12,7 +12,7 @@ test:
       hosts:
         - localhost:27017
       options:
-        consistency: :strong
+        read: :primary
         max_retries: 1
         retry_interval: 0
 
@@ -21,8 +21,8 @@ production:
     default:
       uri: <%= ENV['MONGOHQ_URL'] %>
       options:
-        consistency: :strong
+        read: :primary
         max_retries: 5
         retry_interval: 1
         skip_version_check: true
-        safe: true
+        write: { w: 1 }

@@ -1,9 +1,11 @@
 module Tweetable
-  def tweet(messages, oauth_token, oauth_token_secret)
-    client = Twitter::Client.new(
-      oauth_token: oauth_token,
-      oauth_token_secret: oauth_token_secret
-    )
+  def tweet(messages, access_token, access_token_secret)
+    client = Twitter::REST::Client.new do |config|
+      config.config.consumer_key = ENV['TWITTER_KEY'],
+      config.consumer_secret = ENV['TWITTER_SECRET'],
+      config.access_token = access_token,
+      config.access_token_secret = access_token_secret
+    end
 
     status = {}
     messages.each do |message|

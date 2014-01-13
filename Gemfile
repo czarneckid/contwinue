@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 # Server
-gem 'rails', '4.0.0'
+gem 'rails', '~> 4.0.0'
 gem 'unicorn'
 
 # Templating and UI
@@ -18,8 +18,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 
 # Database
-gem 'mongoid', git: 'git://github.com/mongoid/mongoid.git'
-gem 'bson_ext'
+gem 'mongoid', '4.0.0.alpha2'
 
 # Utility
 gem 'twitter'
