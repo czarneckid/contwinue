@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 # Server
-gem 'rails', '~> 4.0.0'
+gem 'rails', '4.1.0.beta1'
 gem 'unicorn'
 
 # Templating and UI
@@ -36,6 +36,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'database_cleaner'
 end
+
+gem 'spring', group: :development
 
 group :development do
   gem 'guard'
